@@ -140,8 +140,16 @@
     }
 }
 
-
-
+\newtcolorbox{boxObservacao}{
+    colback=mostarda!10,
+    colframe=mostarda,
+    boxrule=1pt,
+    arc=4pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt
+}
 
 % =====================================================
 % QR CODE PERSONALIZADO
@@ -848,219 +856,149 @@ Agora avançaremos para a seguinte questão:
 
 
 % =====================================================
-\subsection{Etapa 1 – Definição do Público-Alvo}
+\section{Guia de Construção do Plano de Extensão}
 
-\begin{boxAtividade}[Definição Inicial]
+Este guia servirá como roteiro para o preenchimento do seu \textbf{Plano de Criação de Curso de Extensão}. O objetivo é que, ao final de cada aula, seu grupo tenha avançado em etapas concretas da estruturação do curso.
 
-Cada grupo deverá responder:
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.8cm and 1.2cm,
+    every node/.style={font=\scriptsize},
+    etapa/.style={
+        rectangle,
+        rounded corners=5pt,
+        draw=azulTitulo,
+        fill=azulTitulo!10,
+        text width=2.2cm,
+        minimum height=1cm,
+        align=center,
+        inner sep=3pt
+    },
+    arrow/.style={
+        -{Latex[length=2mm]},
+        thick,
+        draw=azulTitulo
+    }
+]
+
+% --- Linha 1 ---
+\node[etapa] (e1) {1. Público-Alvo};
+\node[etapa, right=of e1] (e2) {2. Validação};
+\node[etapa, right=of e2] (e3) {3. Objetivos};
+\node[etapa, right=of e3] (e4) {4. Estrutura};
+
+% --- Linha 2 ---
+\node[etapa, below=of e4] (e5) {5. Metodologia};
+\node[etapa, left=of e5] (e6) {6. Material};
+\node[etapa, left=of e6] (e7) {7. Avaliação};
+\node[etapa, left=of e7] (e8) {8. Aplicação};
+
+% --- Linha 3 ---
+\node[etapa, below=of e8] (e9) {9. Impacto};
+\node[etapa, right=of e9] (e10) {10. Checklist};
+
+% --- Setas ---
+\draw[arrow] (e1) -- (e2);
+\draw[arrow] (e2) -- (e3);
+\draw[arrow] (e3) -- (e4);
+\draw[arrow] (e4) -- (e5);
+\draw[arrow] (e5) -- (e6);
+\draw[arrow] (e6) -- (e7);
+\draw[arrow] (e7) -- (e8);
+\draw[arrow] (e8) -- (e9);
+\draw[arrow] (e9) -- (e10);
+
+\end{tikzpicture}
+\caption{Fluxo de Desenvolvimento do Plano de Criação.}
+\end{figure}
+
+% =====================================================
+\subsection{1. Definição do Público-Alvo}
+
+\begin{boxAtividade}[Atividade 01]
+Identifiquem com precisão quem são as pessoas que participarão do curso. Lembrem-se: quanto mais específico o público, melhor será o material produzido.
 
 \begin{itemize}
-    \item Quem será atendido?
-    \item Qual a faixa etária?
-    \item Qual contexto social?
-    \item Temos acesso real a esse público?
-    \item O problema identificado é verificável?
+    \item \textbf{1.1 Quem é o público?} (Ex: Idosos do bairro X, pequenos comerciantes de Garopaba).
+    \item \textbf{1.2 Perfil:} Idade, escolaridade e o que eles já sabem sobre o tema.
+    \item \textbf{1.3 Dificuldades:} Quais são as "dores" ou problemas que eles enfrentam hoje?
 \end{itemize}
-
-\textbf{Entrega:} Descrição objetiva (até 10 linhas) do público e do problema identificado.
-
 \end{boxAtividade}
 
 % =====================================================
-\subsection{Etapa 2 – Validação da Proposta}
+\subsection{2. Validação do Problema}
 
-\begin{boxAtividade}[Validação do Problema]
-
-Antes de estruturar o curso, o grupo deverá:
-
+\begin{boxAtividade}[Atividade 02]
+Não criamos cursos baseados em suposições. É preciso validar se o problema realmente existe.
 \begin{itemize}
-    \item Conversar com pelo menos um possível participante;
-    \item OU realizar pequena pesquisa exploratória;
-    \item OU buscar dados que confirmem a necessidade.
+    \item Como vocês comprovaram essa necessidade? (Conversas, pesquisas, notícias?)
+    \item Por que isso é relevante para a comunidade local?
 \end{itemize}
-
-\textbf{Entrega:} Relato breve (5–10 linhas) descrevendo a validação realizada.
-
 \end{boxAtividade}
 
 % =====================================================
-\subsection{Etapa 3 – Estrutura do Curso}
+\subsection{3. Objetivo do Curso (Foco de Hoje)}
 
-\begin{boxAtividade}[Ficha-Resumo do Curso]
+O objetivo é a "promessa" do seu curso. Ele deve ser claro, mensurável e alcançável.
 
-Estrutura mínima obrigatória:
+\begin{boxAtividade}[Atividade 03 – Definindo Metas]
+Preencham os itens 3.1, 3.2 e 3.3 do Plano.
 
 \begin{itemize}
-    \item Nome do curso;
-    \item Objetivo geral;
-    \item Carga horária;
-    \item Modalidade (presencial ou híbrido);
-    \item Público-alvo;
-    \item Problema que será resolvido.
+    \item \textbf{3.1 Objetivo Geral:} Uma frase curta que resume o que o curso quer entregar. 
+    \textit{Ex: Capacitar pequenos empreendedores no uso básico de IA para criação de posts.}
+    
+    \item \textbf{3.2 Objetivos Específicos:} Os passos para chegar lá. Use verbos de ação! (Mínimo 3).
+    \begin{itemize}
+        \item [ ] \textit{Identificar...}
+        \item [ ] \textit{Configurar...}
+        \item [ ] \textit{Criar...}
+        \item [ ] \textit{Aplicar...}
+    \end{itemize}
+    
+    \item \textbf{3.3 Resultado Esperado:} O que o aluno vai sair sabendo fazer "com as mãos"?
 \end{itemize}
+\end{boxAtividade}
 
-\textbf{Entrega:} Ficha-resumo organizada em documento digital.
+\begin{boxObservacao}
+\textbf{Dica do Professor: A Taxonomia de Bloom} \\
+Ao escrever objetivos, use verbos que descrevam ações observáveis:
+\begin{itemize}
+    \item \textbf{Conhecimento:} Listar, definir, identificar.
+    \item \textbf{Aplicação:} Usar, implementar, produzir.
+    \item \textbf{Criação:} Planejar, construir, desenvolver.
+\end{itemize}
+Evite verbos vagos como "Entender" ou "Aprender". Prefira "Demonstrar" ou "Executar".
+\end{boxObservacao}
 
+% =====================================================
+\subsection{4. Estrutura do Curso}
+
+\begin{boxAtividade}[Atividade 04]
+Como o curso será dividido? 
+\begin{itemize}
+    \item \textbf{Carga Horária:} Quantas horas (mínimo 4h, máximo 12h recomendadas).
+    \item \textbf{Módulos:} Dividam o conteúdo em partes lógicas. Cada integrante do grupo deve ser "dono" de um módulo.
+\end{itemize}
 \end{boxAtividade}
 
 % =====================================================
-\subsection{Etapa 4 – Estrutura Modular}
+\subsection{5 a 10. Próximas Etapas}
 
-Cada curso deverá conter \textbf{4 módulos}, sendo cada módulo responsabilidade de um integrante.
-
-\begin{boxAtividade}[Planejamento do Módulo]
-
-Para cada módulo definir:
-
+Nas próximas aulas, avançaremos nos seguintes itens:
 \begin{itemize}
-    \item Objetivo específico;
-    \item Conteúdo a ser abordado;
-    \item Atividade prática;
-    \item Material necessário.
+    \item \textbf{5. Metodologia:} Como você vai ensinar? (Oficina prática ou palestra?)
+    \item \textbf{6. Produção de Material:} O que você vai entregar para o aluno levar para casa?
+    \item \textbf{7. Avaliação:} Como você saberá que eles aprenderam?
+    \item \textbf{8. Aplicação Real:} Onde e quando o curso vai acontecer?
+    \item \textbf{9. Impacto Social:} Que diferença seu curso fez no mundo?
+    \item \textbf{10. Checklist Final:} Revisão técnica antes da execução.
 \end{itemize}
 
-\textbf{Entrega:} Plano detalhado do módulo.
-
-\end{boxAtividade}
-
-% =====================================================
-\subsection{Etapa 5 – Produção de Material}
-
-\begin{boxAtividade}[Produção Didática]
-
-Entrega mínima por módulo:
-
-\begin{itemize}
-    \item Slides ou material didático;
-    \item Atividade prática aplicada;
-    \item Guia resumido em PDF;
-    \item Roteiro de condução da aula.
-\end{itemize}
-
-\end{boxAtividade}
-
-% =====================================================
-\subsection{Etapa 6 – Planejamento da Aplicação}
-
-\begin{boxAtividade}[Aplicação Real]
-
-O grupo deverá definir:
-
-\begin{itemize}
-    \item Local de aplicação;
-    \item Data prevista;
-    \item Forma de inscrição;
-    \item Número de vagas;
-    \item Estratégia de divulgação.
-\end{itemize}
-
-\end{boxAtividade}
-
-% =====================================================
-\subsection{Organização da Turma}
-
-A turma será dividida em:
-
-\begin{itemize}
-    \item \textbf{Grupo 1:} Curso voltado à comunidade geral;
-    \item \textbf{Grupo 2:} Curso voltado ao público infantil (faixa etária a definir).
-\end{itemize}
-
-Cada grupo contará com 4 integrantes.
-
-% =====================================================
-\subsection{Cronograma Proposto}
-
-\begin{itemize}
-    \item Semana 1 – Definição do público e validação;
-    \item Semana 2 – Estrutura do curso;
-    \item Semana 3 – Estrutura modular;
-    \item Semana 4 – Produção de material;
-    \item Semana 5 – Ajustes e revisão;
-    \item Semana 6 – Aplicação piloto.
-\end{itemize}
-
-% =====================================================
-\subsection{Critérios de Qualidade}
-
-O curso deverá:
-
-\begin{itemize}
-    \item Resolver problema real;
-    \item Ser viável dentro do semestre;
-    \item Ter aplicação concreta;
-    \item Possuir material organizado;
-    \item Apresentar impacto mensurável.
-\end{itemize}
-
-% =====================================================
-% =====================================================
-\subsection{Propostas Estruturadas para Discussão}
-
-Os temas abaixo deverão ser analisados quanto à viabilidade,
-acesso ao público e capacidade de produção de material dentro do semestre.
-
-\subsubsection*{1. Inclusão Digital para Idosos}
-
-Possíveis subtemas:
-
-\begin{itemize}
-    \item Uso básico de smartphone;
-    \item Aplicativos bancários e segurança;
-    \item Identificação de golpes digitais;
-    \item Uso de WhatsApp e videochamadas;
-    \item Serviços públicos digitais (Gov.br).
-\end{itemize}
-
-Foco: autonomia digital e segurança.
-
-% -----------------------------------------------------
-
-\subsubsection*{2. Segurança Digital para Crianças (9–13 anos)}
-
-Possíveis subtemas:
-
-\begin{itemize}
-    \item Senhas seguras e privacidade;
-    \item Riscos em redes sociais;
-    \item Cyberbullying;
-    \item Jogos online com segurança;
-    \item Introdução ao pensamento computacional com atividades lúdicas.
-\end{itemize}
-
-Foco: conscientização e uso responsável da internet.
-
-% -----------------------------------------------------
-
-\subsubsection*{3. Presença Digital e IA para Pequenos Empreendedores}
-
-Possíveis subtemas:
-
-\begin{itemize}
-    \item Criação de perfil profissional no Instagram;
-    \item Noções básicas de criação de sites simples;
-    \item Uso de ferramentas de IA para criação de conteúdo;
-    \item Geração de textos comerciais com IA;
-    \item Criação de imagens para divulgação com ferramentas gratuitas.
-\end{itemize}
-
-Foco: aumento de visibilidade e produtividade digital.
-
-% -----------------------------------------------------
-
-\subsubsection*{4. IA Aplicada ao Ambiente de Desenvolvimento (VSCode)}
-
-Possíveis subtemas:
-
-\begin{itemize}
-    \item Uso de assistentes de código baseados em IA;
-    \item Organização de projetos com apoio de IA;
-    \item Boas práticas ao utilizar IA na programação;
-    \item Limitações e ética no uso de IA;
-    \item Integração de extensões inteligentes no VSCode.
-\end{itemize}
-
-Foco: produtividade e uso responsável da inteligência artificial.
+\begin{boxObservacao}
+\textbf{Lembrete:} O plano é um documento vivo. Ele pode ser ajustado à medida que vocês avançam na produção do material didático.
+\end{boxObservacao}
 
 
 % =====================================================
