@@ -1,0 +1,1088 @@
+\documentclass[12pt,a4paper]{article}
+
+% =====================================================
+% PACOTES
+% =====================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{newtxtext,newtxmath}
+\usepackage[most]{tcolorbox}
+\usepackage{qrcode}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+
+% \geometry{margin=2.5cm}
+\geometry{
+    top=2.5cm,
+    bottom=3cm,
+    left=1.5cm,
+    right=1.5cm
+}
+
+
+\onehalfspacing
+
+
+% =====================================================
+% DEFINIÇÃO DE CORES
+% =====================================================
+
+\definecolor{mostarda}{RGB}{204,153,0}
+
+
+
+
+% =====================================================
+% CORES PERSONALIZADAS
+% =====================================================
+
+\definecolor{azulObjetivos}{RGB}{30,60,90}
+\definecolor{cinzaCodigo}{RGB}{245,245,245}
+\definecolor{vermelhoCodigo}{RGB}{180,50,50}
+\definecolor{pretoTabela}{RGB}{0,0,0}
+\definecolor{cinzaTabela}{RGB}{235,235,235}
+\definecolor{mostarda}{RGB}{204,153,0}
+
+
+% =====================================================
+% BOX VISUAL PARA OBJETIVOS
+% =====================================================
+\tcbset{
+    boxObjetivos/.style={
+        % colback=azulTitulo!5,
+        colback=mostarda!15,
+        % colframe=azulTitulo,
+        colframe=mostarda,
+        fonttitle=\bfseries,
+        coltitle=black,
+        title=Objetivos,
+        arc=4pt,
+        boxrule=0.8pt,
+        left=6pt,
+        right=6pt,
+        top=6pt,
+        bottom=6pt
+    }
+}
+
+
+\newtcolorbox{boxObjetivos}{
+    colback=azulObjetivos!10,
+    colframe=azulObjetivos,
+    boxrule=1pt,
+    arc=4pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt
+}
+
+\newtcolorbox{boxCodigo}{
+    colback=cinzaCodigo,
+    colframe=vermelhoCodigo,
+    boxrule=0.8pt,
+    arc=2pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt,
+    borderline={0.5pt}{0pt}{vermelhoCodigo,dashed}
+}
+
+
+\newtcolorbox{boxTabela}{
+    colback=cinzaTabela,
+    colframe=pretoTabela,
+    boxrule=0.8pt,
+    arc=2pt,
+    left=4pt,
+    right=4pt,
+    top=4pt,
+    bottom=4pt
+}
+
+
+
+\newtcolorbox{boxAtividade}[1][]{
+    breakable,
+    enhanced,
+    colback=azulTitulo!5, % fundo azul bem suave
+    colframe=azulTitulo,
+    boxrule=0pt,
+    arc=6pt,
+    outer arc=6pt,
+    boxsep=0pt,
+    left=14pt,
+    right=14pt,
+    top=16pt,
+    bottom=14pt,
+    title=#1,
+    coltitle=white,
+    colbacktitle=azulTitulo,
+    fonttitle=\bfseries,
+    attach boxed title to top left={
+        yshift=-3mm,
+        xshift=6mm
+    },
+    boxed title style={
+        sharp corners,
+        boxrule=0pt
+    }
+}
+
+
+
+
+% =====================================================
+% QR CODE PERSONALIZADO
+% =====================================================
+\newcommand{\RepositorioQRCode}[2]{
+\begin{tcolorbox}[
+    colback=gray!5,
+    colframe=black!40,
+    title=Material de repositório,
+    fonttitle=\bfseries,
+    arc=3pt,
+    boxrule=0.5pt
+]
+\begin{minipage}{0.7\textwidth}
+Acesse o repositório oficial deste conteúdo:
+
+\texttt{#1}
+
+\end{minipage}
+\begin{minipage}{0.25\textwidth}
+\centering
+\qrcode[height=2.0cm]{#2}
+\end{minipage}
+\end{tcolorbox}
+}
+
+
+
+% =====================================================
+% CORES
+% =====================================================
+\definecolor{azulTitulo}{RGB}{30,60,90}
+
+% =====================================================
+% CABEÇALHO
+% =====================================================
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyhead[L]{
+\includegraphics[height=1.8cm]{figures/garopaba_horizontal_marca2015_PNG.png}
+}
+
+\fancyhead[R]{
+\textbf{UC – Atividades de Extensão}\\
+Docente: Prof. André Moraes\\ 
+\textbf{Curso Superior em Sistemas para Internet
+}}
+
+
+% =====================================================
+% RODAPÉ
+% =====================================================
+\pagestyle{fancy}
+
+\fancyfoot[L]{\small\textit{\leftmark}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\small Página \thepage}
+% \fancyfoot[R]{\small IFSC – Técnico Integrado}
+\renewcommand{\footrulewidth}{2.4pt}
+
+\setlength{\headheight}{45pt}
+
+
+% =====================================================
+% ESTILO DE SEÇÃO
+% =====================================================
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{azulTitulo}}
+{\thesection}
+{1em}
+{}
+[\vspace{0.3cm}\hrule]
+
+\titleformat{\subsection}
+{\normalfont\bfseries}
+{}
+{0em}
+{}
+[\vspace{0.2cm}\hrule]
+
+% =====================================================
+% DOCUMENTO
+% =====================================================
+\begin{document}
+
+% =====================================================
+% CAPA GERAL
+% =====================================================
+\begin{center}
+    {\Large \textbf{ATIVIDADES DA UNIDADE CURRICULAR}}\\
+    Unidade Curricular: Atividades de Extensão\\
+    Semestre 5 – 60h
+\end{center}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.8cm}
+
+\tableofcontents
+\newpage
+
+
+
+
+
+% =====================================================
+% VISÃO GERAL DA DISCIPLINA
+% =====================================================
+\section*{Visão Geral da Unidade Curricular}
+
+Esta unidade curricular tem como objetivo promover a integração entre formação acadêmica e comunidade externa por meio do desenvolvimento de cursos tecnológicos de extensão.
+
+Ao longo do semestre, os estudantes irão planejar, estruturar, desenvolver, executar e avaliar um curso tecnológico voltado à comunidade, aplicando conhecimentos adquiridos ao longo do curso de Sistemas para Internet em situações reais de impacto social.
+
+A disciplina será orientada por uma perspectiva prática, crítica e profissional, incentivando autonomia, organização e responsabilidade social.
+
+\subsection*{Estrutura do Semestre}
+
+O semestre está organizado em 8 etapas estruturantes, distribuídas ao longo de 20 encontros:
+
+\begin{enumerate}
+    \item \textbf{Tecnologia que Transforma: Fundamentos da Extensão} \\
+    Compreensão do papel da extensão, sua relevância social e sua articulação com ensino e pesquisa.
+
+    \item \textbf{Identificando Demandas Reais} \\
+    Diagnóstico comunitário e definição de problemas tecnológicos que possam ser solucionados por meio de ações formativas.
+
+    \item \textbf{Planejamento do Curso Tecnológico} \\
+    Definição do público-alvo, objetivos, competências, estrutura curricular e metodologia de ensino.
+
+    \item \textbf{Estruturação Pedagógica e Organização Operacional} \\
+    Planejamento de cronograma, recursos didáticos, estratégias de divulgação e organização logística.
+
+    \item \textbf{Desenvolvimento do Material Didático} \\
+    Produção de conteúdo técnico, atividades práticas e recursos de apoio ao aprendizado.
+
+    \item \textbf{Simulação e Ajustes do Curso} \\
+    Testes internos, revisão técnica e aprimoramento metodológico.
+
+    \item \textbf{Execução da Ação de Extensão} \\
+    Aplicação piloto ou execução real do produto gerado junto à comunidade.
+
+    \item \textbf{Avaliação de Impacto e Socialização dos Resultados} \\
+    Coleta de dados, análise de resultados, elaboração de relatório técnico e apresentação em evento interno.
+\end{enumerate}
+
+\subsection*{Competências Desenvolvidas}
+
+Ao final da disciplina, o estudante deverá ser capaz de:
+
+\begin{itemize}
+    \item Compreender o papel estratégico da extensão;
+    \item Identificar demandas tecnológicas da comunidade;
+    \item Planejar e estruturar cursos tecnológicos de forma profissional;
+    \item Desenvolver material didático adequado a diferentes públicos;
+    \item Organizar e executar ações formativas com responsabilidade social;
+    \item Coletar e analisar dados de impacto;
+    \item Produzir relatório técnico fundamentado teoricamente;
+    \item Atuar com postura ética, colaborativa e profissional.
+\end{itemize}
+
+\subsection*{Metodologia}
+
+A disciplina será conduzida por meio de aprendizagem baseada em projetos (Project-Based Learning), com desenvolvimento incremental de um curso tecnológico de extensão. Cada etapa envolverá momentos de fundamentação teórica, planejamento estruturado, desenvolvimento prático e validação.
+
+O semestre culminará na execução da ação de extensão e na apresentação pública dos resultados em evento interno de socialização.
+
+
+
+\subsection*{Avaliação da Aprendizagem}
+
+A avaliação será processual e contínua, considerando o desenvolvimento do projeto de extensão ao longo do semestre.
+
+A nota final será composta por dois componentes:
+
+\begin{itemize}
+    \item \textbf{Projeto em Grupo (80\%)} – Avaliado em quatro eixos:
+    \begin{itemize}
+        \item Planejamento e Estruturação do Projeto;
+        \item Desenvolvimento Técnico e Material Didático;
+        \item Execução e Impacto da Ação;
+        \item Relatório Final e Documentação Técnica.
+    \end{itemize}
+    
+    \item \textbf{Desempenho Individual (20\%)} – Considerando participação, comprometimento, assiduidade, contribuição efetiva e postura profissional ao longo do semestre.
+\end{itemize}
+
+A avaliação prioriza a coerência entre planejamento, execução e análise crítica dos resultados obtidos junto à comunidade.
+
+
+
+
+\newpage
+
+
+% =====================================================
+% CAPÍTULO 01
+% =====================================================
+\section{Tecnologia que Transforma: O Papel da Extensão na Sociedade}
+
+\begin{tcolorbox}[boxObjetivos]
+\begin{itemize}
+    \item Compreender o conceito de extensão;
+    \item Reconhecer a indissociabilidade entre ensino, pesquisa e extensão;
+    \item Refletir sobre o papel social da tecnologia;
+    \item Identificar como a formação acadêmica pode gerar impacto na comunidade.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection*{Recursos Necessários}
+
+Projetor multimídia, acesso a exemplos de projetos de extensão e documentos orientadores sobre extensão.
+
+\subsection*{Introdução}
+
+A universidade não existe isolada da sociedade. 
+Seu papel vai além da formação técnica e da produção científica: ela deve contribuir ativamente para a transformação social.
+
+A extensão é o mecanismo que conecta o conhecimento acadêmico às necessidades reais da comunidade. 
+Por meio dela, estudantes aplicam o que aprendem para enfrentar problemas concretos, promovendo desenvolvimento, inclusão e inovação.
+
+Neste capítulo, discutiremos como a tecnologia pode ser instrumento de impacto social e como a extensão se torna parte essencial da formação profissional.
+
+\subsection*{Fundamentação Conceitual}
+
+\textbf{extensão} é o conjunto de ações que promovem a interação transformadora entre instituição de ensino e sociedade.
+
+Ela deve estar articulada com:
+
+\begin{itemize}
+    \item \textbf{Ensino} – formação acadêmica;
+    \item \textbf{Pesquisa} – produção de conhecimento;
+    \item \textbf{Comunidade} – aplicação prática e impacto social.
+\end{itemize}
+
+A indissociabilidade entre ensino, pesquisa e extensão fortalece a formação crítica e cidadã do estudante.
+
+No contexto da área de Sistemas para Internet, a tecnologia pode contribuir para:
+
+\begin{itemize}
+    \item Inclusão digital;
+    \item Capacitação profissional;
+    \item Apoio a microempreendedores;
+    \item Desenvolvimento de soluções acessíveis;
+    \item Melhoria da gestão de organizações comunitárias.
+\end{itemize}
+
+\subsection*{Etapas de Desenvolvimento}
+
+\textbf{Parte 1 – Reflexão Orientada}
+
+Em grupos, discutir:
+
+\begin{itemize}
+    \item De que forma a tecnologia pode gerar impacto social?
+    \item Que problemas tecnológicos você observa na comunidade?
+    \item Como o curso de Sistemas para Internet pode contribuir para resolvê-los?
+\end{itemize}
+
+\bigskip
+
+\textbf{Parte 2 – Debate Coletivo}
+
+Compartilhar as ideias levantadas e identificar padrões de demandas sociais relacionadas à tecnologia.
+
+\subsection*{Produto do Capítulo}
+
+Cada grupo deverá entregar um texto reflexivo (1 página) contendo:
+
+\begin{itemize}
+    \item Uma análise sobre o papel da extensão na formação profissional;
+    \item Um exemplo concreto de como a tecnologia pode gerar impacto social;
+    \item Uma ideia inicial de área temática para o projeto do grupo.
+\end{itemize}
+
+
+\newpage
+
+% =====================================================
+% CAPÍTULO 02
+% =====================================================
+\section{Da Teoria à Ação: Como a Extensão Funciona no IFSC}
+
+\begin{tcolorbox}[boxObjetivos]
+\begin{itemize}
+    \item Compreender como as ações de extensão são organizadas institucionalmente;
+    \item Conhecer os tipos de ações de extensão previstas no IFSC;
+    \item Entender o fluxo de registro e acompanhamento das ações;
+    \item Analisar projetos reais de extensão como referência estruturante;
+    \item Identificar responsabilidades na execução de projetos de extensão.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection*{Recursos Necessários}
+
+Projetor multimídia, acesso ao regulamento institucional de extensão, acesso ao sistema acadêmico para registro de ações e acesso ao \textit{Catálogo de Extensão 2024 – FURB}.
+
+\subsection*{Introdução}
+
+A extensão não ocorre de forma improvisada. 
+Ela é organizada por normas institucionais que garantem qualidade, responsabilidade e impacto social. Para que uma ação de extensão seja reconhecida oficialmente, ela precisa seguir fluxos de registro, planejamento e acompanhamento definidos pela instituição.
+
+Além da compreensão normativa, é fundamental analisar exemplos reais de projetos já executados, identificando como são estruturados, justificados e apresentados institucionalmente.
+
+Neste capítulo, compreenderemos como a extensão é estruturada no IFSC e analisaremos projetos reais como base para o desenvolvimento da ação da disciplina.
+
+\subsection*{Fundamentação Conceitual}
+
+No IFSC, as ações de extensão podem ser classificadas como:
+
+\begin{itemize}
+    \item \textbf{Projeto}: ação com objetivos específicos e duração determinada;
+    \item \textbf{Programa}: conjunto articulado de projetos com caráter contínuo;
+    \item \textbf{Curso}: atividade formativa com carga horária definida;
+    \item \textbf{Evento}: atividade pontual de socialização ou divulgação;
+    \item \textbf{Produto}: desenvolvimento de tecnologia ou material técnico com impacto social.
+\end{itemize}
+
+Para que a ação seja reconhecida institucionalmente, é necessário:
+
+\begin{itemize}
+    \item Planejamento formal;
+    \item Definição de público-alvo;
+    \item Justificativa social;
+    \item Registro no sistema acadêmico;
+    \item Elaboração de relatório final.
+\end{itemize}
+
+O cumprimento dessas etapas assegura transparência, organização e reconhecimento da atividade.
+
+\subsection*{VAMOS A PRÁTICA [Trabalhem em duplas]:}
+
+
+\begin{boxAtividade}[Parte 1 – Análise Institucional]
+Acessar o portal do IFSC [http://www.ifsc.edu.br] e identificar:
+
+\begin{itemize}
+    \item Onde ficam as informações sobre extensão;
+    \item É possível listar os projetos do Câmpus Garopaba?
+    \item Encontre 3 projetos voltados para tecnologia;
+\end{itemize}
+\end{boxAtividade}
+
+\bigskip
+
+\begin{boxAtividade}[Parte 2 – Análise de Projetos Reais]
+
+Com base no \textbf{Catálogo de Extensão 2024 – FURB}, cada grupo deverá:
+
+\begin{itemize}
+    \item Selecionar \textbf{dois projetos diferentes} do catálogo;
+    \item Preencher a tabela de análise para cada projeto selecionado;
+    \item Elaborar uma análise crítica comparativa entre os dois projetos.
+\end{itemize}
+
+\textbf{Tabela 1 – Modelo de Análise de Projeto de Extensão}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{4cm}|p{9cm}|}
+\hline
+\textbf{Item de Análise} & \textbf{Descrição} \\ \hline
+Título do Projeto & \\ \hline
+Área Temática & \\ \hline
+Público-alvo & \\ \hline
+Problema Social Atendido & \\ \hline
+Objetivos Principais & \\ \hline
+Estratégia de Execução & \\ \hline
+Tipo de Ação (projeto, curso, programa, evento, etc.) & \\ \hline
+Potencial de Impacto Social & \\ \hline
+Indicadores de Resultado (se houver) & \\ \hline
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\textbf{Entrega:} Documento estruturado contendo as duas tabelas preenchidas e uma análise crítica comparativa entre os projetos (mínimo 2 páginas).
+
+\end{boxAtividade}
+
+
+
+\bigskip
+
+\begin{boxAtividade}[Parte 3 – Comparação de Modalidades]
+Em grupos, discutir:
+
+\begin{itemize}
+    \item Quais vantagens e limitações existem entre programa, projeto, curso e evento?
+    \item Selecione uma categoria e elabore 2 opções de proposta. Identifique um contexto adequado para o tipo de produto que você elaborar, um título e um parágrafo de descrição. 
+\end{itemize}
+\end{boxAtividade}
+
+\bigskip
+
+
+\subsection*{Produto do Capítulo}
+
+Cada grupo deverá entregar:
+
+\begin{itemize}
+    \item Responder quesTões da análise do site institucional [parte 1];
+    \item Uma tabela comparativa entre os projetos analisados [parte 2];
+    \item Descrever as questões da comparação de Modalidades que foi proposta [parte 3].
+\end{itemize}
+
+
+\newpage
+
+% =====================================================
+% CAPÍTULO 03
+% =====================================================
+\section{Ideias que Geram Impacto: Formatos de Ações de Extensão}
+
+\begin{tcolorbox}[boxObjetivos]
+\begin{itemize}
+    \item Compreender as diferentes modalidades de ações de extensão;
+    \item Analisar o potencial de impacto de cada formato;
+    \item Avaliar viabilidade, alcance e sustentabilidade das ações;
+    \item Desenvolver visão estratégica sobre impacto social.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection*{Recursos Necessários}
+
+Projetor multimídia, exemplos de ações de extensão já realizadas e acesso a editais institucionais ou relatórios de projetos anteriores.
+
+\subsection*{Introdução}
+
+Uma boa ideia não é necessariamente uma boa ação de extensão. 
+O impacto social depende da forma como a ação é estruturada, executada e acompanhada.
+
+Projetos, programas, cursos, eventos e produtos possuem características diferentes, níveis distintos de alcance e exigências específicas de planejamento.
+
+Neste capítulo, analisaremos criticamente esses formatos e discutiremos quais elementos tornam uma ação de extensão realmente transformadora.
+
+\subsection*{Fundamentação Conceitual}
+
+Cada modalidade de extensão possui características próprias:
+
+\begin{itemize}
+    \item \textbf{Projeto}: foco específico, prazo determinado, impacto delimitado.
+    \item \textbf{Programa}: continuidade e articulação entre múltiplas ações.
+    \item \textbf{Curso}: formação estruturada com carga horária definida.
+    \item \textbf{Evento}: atividade pontual de socialização ou sensibilização.
+    \item \textbf{Produto}: desenvolvimento tecnológico aplicado à comunidade.
+\end{itemize}
+
+Para avaliar o impacto de uma ação, devemos considerar:
+
+\begin{itemize}
+    \item Alcance (quantas pessoas serão impactadas?);
+    \item Profundidade (a mudança será superficial ou estruturante?);
+    \item Sustentabilidade (a ação pode continuar no futuro?);
+    \item Replicabilidade (pode ser aplicada em outros contextos?).
+\end{itemize}
+
+Uma ação de impacto não é apenas bem executada — ela é estrategicamente planejada.
+
+\subsection*{Etapas de Desenvolvimento}
+
+\textbf{Parte 1 – Análise Crítica}
+
+Em grupos, analisar diferentes exemplos de ações de extensão e responder:
+
+\begin{itemize}
+    \item Qual o formato utilizado?
+    \item Qual o nível de impacto gerado?
+    \item Houve continuidade ou foi uma ação isolada?
+    \item A ação poderia ter sido estruturada de forma mais eficaz?
+\end{itemize}
+
+\bigskip
+
+\textbf{Parte 2 – Reflexão Estratégica}
+
+Discutir:
+
+\begin{itemize}
+    \item Por que a modalidade de curso foi escolhida para esta disciplina?
+    \item Como tornar esse curso mais do que uma atividade pontual?
+    \item Que elementos podem aumentar seu impacto?
+\end{itemize}
+
+\subsection*{Produto do Capítulo}
+
+Cada grupo deverá elaborar um documento de até 2 páginas contendo:
+
+\begin{itemize}
+    \item Análise comparativa entre duas modalidades de extensão;
+    \item Justificativa estratégica para o formato escolhido;
+    \item Propostas de elementos que aumentem o impacto do curso.
+\end{itemize}
+
+
+
+
+
+% =====================================================
+% CAPÍTULO 04
+% =====================================================
+\section{Ouvindo a Comunidade: Identificando Problemas Reais para Resolver}
+
+\begin{tcolorbox}[boxObjetivos]
+\begin{itemize}
+    \item Compreender a importância do diagnóstico comunitário;
+    \item Identificar problemas tecnológicos reais e verificáveis;
+    \item Definir um público-alvo específico;
+    \item Estruturar a base inicial do projeto de extensão.
+\end{itemize}
+\end{tcolorbox}
+
+\subsection*{Recursos Necessários}
+
+Projetor multimídia, acesso à internet para pesquisa, formulário de diagnóstico (modelo fornecido pelo professor) e documentos para registro das propostas.
+
+\subsection*{Introdução}
+
+Uma ação de extensão não nasce da criatividade isolada do grupo. Ela nasce da escuta. Projetos baseados apenas em suposições tendem a gerar pouco impacto. Por isso, antes de planejar um curso tecnológico, é essencial compreender uma necessidade real da comunidade. Neste encontro, os grupos iniciarão o processo de diagnóstico, buscando identificar problemas tecnológicos concretos que possam ser enfrentados por meio de uma ação formativa estruturada.
+
+\subsection*{Fundamentação Conceitual}
+
+\textbf{Diagnóstico comunitário} é o processo de identificação sistemática de necessidades, dificuldades e oportunidades em determinado público ou contexto social.
+
+Um diagnóstico consistente deve responder:
+
+\begin{itemize}
+    \item Quem é o público-alvo?
+    \item Qual problema tecnológico esse público enfrenta?
+    \item Esse problema pode ser resolvido por meio de formação?
+    \item Existe viabilidade técnica para execução do curso?
+\end{itemize}
+
+A qualidade do diagnóstico determina a qualidade do impacto social.
+
+Problemas genéricos como “falta de conhecimento em tecnologia” não são suficientes. 
+É necessário delimitar:
+
+\begin{itemize}
+    \item Contexto específico;
+    \item Perfil do público;
+    \item Tipo de dificuldade;
+    \item Consequências práticas do problema.
+\end{itemize}
+
+\subsection*{Etapas de Desenvolvimento}
+
+\textbf{Parte 1 – Mapeamento de Públicos}
+
+Em grupos, listar possíveis públicos da comunidade local, como:
+
+\begin{itemize}
+    \item Microempreendedores;
+    \item Idosos;
+    \item Estudantes da rede pública;
+    \item Trabalhadores informais;
+    \item Associações comunitárias;
+    \item Pequenas empresas locais.
+\end{itemize}
+
+Selecionar um público prioritário.
+
+\bigskip
+
+\textbf{Parte 2 – Identificação do Problema}
+
+Responder de forma objetiva:
+
+\begin{enumerate}
+    \item Qual dificuldade tecnológica esse público enfrenta?
+    \item Essa dificuldade foi observada, relatada ou pesquisada?
+    \item Quais são as consequências práticas dessa dificuldade?
+    \item Um curso pode contribuir para minimizar ou resolver esse problema?
+\end{enumerate}
+
+\bigskip
+
+\textbf{Parte 3 – Validação Inicial}
+
+Pesquisar rapidamente:
+
+\begin{itemize}
+    \item Se já existem iniciativas semelhantes;
+    \item Se há demanda potencial na região;
+    \item Se a proposta é viável dentro da carga horária disponível.
+\end{itemize}
+
+\subsection*{Produto do Encontro}
+
+Cada grupo deverá entregar um documento de até 2 páginas contendo:
+
+\begin{itemize}
+    \item Público-alvo definido;
+    \item Descrição clara do problema identificado;
+    \item Justificativa social fundamentada;
+    \item Indícios de viabilidade da proposta.
+\end{itemize}
+
+Este documento será a base obrigatória para o planejamento estruturado do curso nos próximos encontros.
+
+
+
+
+
+
+
+
+\newpage
+
+% =====================================================
+% ROTEIRO – ATIVIDADES DE EXTENSÃO
+% Tema: Da Escuta à Construção de um Curso de Extensão
+% Curso: Sistemas para Internet
+% =====================================================
+
+\section{Da Escuta à Construção de um Curso de Extensão}
+
+\begin{boxObjetivos}
+\textbf{Objetivos da Aula}
+
+Ao final desta etapa, o estudante deverá ser capaz de:
+
+\begin{itemize}
+    \item Transformar um problema real identificado em proposta concreta de curso;
+    \item Definir público-alvo e objetivos claros;
+    \item Estruturar módulos de ensino coerentes;
+    \item Planejar aplicação real dentro do semestre;
+    \item Trabalhar colaborativamente na construção de uma ação extensionista.
+\end{itemize}
+\end{boxObjetivos}
+
+\subsection{Continuidade do Conteúdo Anterior}
+
+Na aula anterior discutimos:
+
+\begin{itemize}
+    \item Escuta ativa;
+    \item Identificação de problemas reais;
+    \item Diferença entre ideia tecnológica e necessidade social;
+    \item Importância do impacto comunitário.
+\end{itemize}
+
+Agora avançaremos para a seguinte questão:
+
+\begin{center}
+\textbf{Como transformar um problema real em um curso aplicável à comunidade?}
+\end{center}
+
+
+% =====================================================
+% FIGURA – Pipeline de Construção do Curso de Extensão
+% =====================================================
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    node distance=1.8cm and 2.2cm,
+    every node/.style={font=\small},
+    etapa/.style={
+        rectangle,
+        rounded corners=5pt,
+        draw=blue!60!black,
+        fill=blue!10,
+        text width=2.4cm,
+        minimum height=1.2cm,
+        align=center,
+        inner sep=4pt
+    },
+    arrow/.style={
+        -{Latex[length=2.5mm]},
+        thick,
+        draw=blue!70!black
+    }
+]
+
+% --- Linha 1 ---
+\node[etapa] (e1) {Etapa 1\\ \textbf{Definição do Público}};
+\node[etapa, right=of e1] (e2) {Etapa 2\\ \textbf{Validação do Problema}};
+\node[etapa, right=of e2] (e3) {Etapa 3\\ \textbf{Estrutura do Curso}};
+
+% --- Linha 2 ---
+\node[etapa, below=of e1] (e4) {Etapa 4\\ \textbf{Planejamento Modular}};
+\node[etapa, right=of e4] (e5) {Etapa 5\\ \textbf{Produção do Material}};
+\node[etapa, right=of e5] (e6) {Etapa 6\\ \textbf{Aplicação Real}};
+
+% --- Setas ---
+\draw[arrow] (e1) -- (e2);
+\draw[arrow] (e2) -- (e3);
+% \draw[arrow] (e3.south) |- (e4.north);  % seta descendo
+% \draw[arrow] (e3.south) -- ++(0,-0.6cm) -| (e4.north);
+\draw[arrow] 
+    (e3.south) 
+    -- ++(0,-0.7cm) 
+    -| ([yshift=4pt]e4.north);
+    
+\draw[arrow] (e4) -- (e5);
+\draw[arrow] (e5) -- (e6);
+
+\end{tikzpicture}
+\caption{Pipeline de execução dividido em duas linhas.}
+\end{figure}
+
+
+
+% =====================================================
+\subsection{Etapa 1 – Definição do Público-Alvo}
+
+\begin{boxAtividade}[Definição Inicial]
+
+Cada grupo deverá responder:
+
+\begin{itemize}
+    \item Quem será atendido?
+    \item Qual a faixa etária?
+    \item Qual contexto social?
+    \item Temos acesso real a esse público?
+    \item O problema identificado é verificável?
+\end{itemize}
+
+\textbf{Entrega:} Descrição objetiva (até 10 linhas) do público e do problema identificado.
+
+\end{boxAtividade}
+
+% =====================================================
+\subsection{Etapa 2 – Validação da Proposta}
+
+\begin{boxAtividade}[Validação do Problema]
+
+Antes de estruturar o curso, o grupo deverá:
+
+\begin{itemize}
+    \item Conversar com pelo menos um possível participante;
+    \item OU realizar pequena pesquisa exploratória;
+    \item OU buscar dados que confirmem a necessidade.
+\end{itemize}
+
+\textbf{Entrega:} Relato breve (5–10 linhas) descrevendo a validação realizada.
+
+\end{boxAtividade}
+
+% =====================================================
+\subsection{Etapa 3 – Estrutura do Curso}
+
+\begin{boxAtividade}[Ficha-Resumo do Curso]
+
+Estrutura mínima obrigatória:
+
+\begin{itemize}
+    \item Nome do curso;
+    \item Objetivo geral;
+    \item Carga horária;
+    \item Modalidade (presencial ou híbrido);
+    \item Público-alvo;
+    \item Problema que será resolvido.
+\end{itemize}
+
+\textbf{Entrega:} Ficha-resumo organizada em documento digital.
+
+\end{boxAtividade}
+
+% =====================================================
+\subsection{Etapa 4 – Estrutura Modular}
+
+Cada curso deverá conter \textbf{4 módulos}, sendo cada módulo responsabilidade de um integrante.
+
+\begin{boxAtividade}[Planejamento do Módulo]
+
+Para cada módulo definir:
+
+\begin{itemize}
+    \item Objetivo específico;
+    \item Conteúdo a ser abordado;
+    \item Atividade prática;
+    \item Material necessário.
+\end{itemize}
+
+\textbf{Entrega:} Plano detalhado do módulo.
+
+\end{boxAtividade}
+
+% =====================================================
+\subsection{Etapa 5 – Produção de Material}
+
+\begin{boxAtividade}[Produção Didática]
+
+Entrega mínima por módulo:
+
+\begin{itemize}
+    \item Slides ou material didático;
+    \item Atividade prática aplicada;
+    \item Guia resumido em PDF;
+    \item Roteiro de condução da aula.
+\end{itemize}
+
+\end{boxAtividade}
+
+% =====================================================
+\subsection{Etapa 6 – Planejamento da Aplicação}
+
+\begin{boxAtividade}[Aplicação Real]
+
+O grupo deverá definir:
+
+\begin{itemize}
+    \item Local de aplicação;
+    \item Data prevista;
+    \item Forma de inscrição;
+    \item Número de vagas;
+    \item Estratégia de divulgação.
+\end{itemize}
+
+\end{boxAtividade}
+
+% =====================================================
+\subsection{Organização da Turma}
+
+A turma será dividida em:
+
+\begin{itemize}
+    \item \textbf{Grupo 1:} Curso voltado à comunidade geral;
+    \item \textbf{Grupo 2:} Curso voltado ao público infantil (faixa etária a definir).
+\end{itemize}
+
+Cada grupo contará com 4 integrantes.
+
+% =====================================================
+\subsection{Cronograma Proposto}
+
+\begin{itemize}
+    \item Semana 1 – Definição do público e validação;
+    \item Semana 2 – Estrutura do curso;
+    \item Semana 3 – Estrutura modular;
+    \item Semana 4 – Produção de material;
+    \item Semana 5 – Ajustes e revisão;
+    \item Semana 6 – Aplicação piloto.
+\end{itemize}
+
+% =====================================================
+\subsection{Critérios de Qualidade}
+
+O curso deverá:
+
+\begin{itemize}
+    \item Resolver problema real;
+    \item Ser viável dentro do semestre;
+    \item Ter aplicação concreta;
+    \item Possuir material organizado;
+    \item Apresentar impacto mensurável.
+\end{itemize}
+
+% =====================================================
+% =====================================================
+\subsection{Propostas Estruturadas para Discussão}
+
+Os temas abaixo deverão ser analisados quanto à viabilidade,
+acesso ao público e capacidade de produção de material dentro do semestre.
+
+\subsubsection*{1. Inclusão Digital para Idosos}
+
+Possíveis subtemas:
+
+\begin{itemize}
+    \item Uso básico de smartphone;
+    \item Aplicativos bancários e segurança;
+    \item Identificação de golpes digitais;
+    \item Uso de WhatsApp e videochamadas;
+    \item Serviços públicos digitais (Gov.br).
+\end{itemize}
+
+Foco: autonomia digital e segurança.
+
+% -----------------------------------------------------
+
+\subsubsection*{2. Segurança Digital para Crianças (9–13 anos)}
+
+Possíveis subtemas:
+
+\begin{itemize}
+    \item Senhas seguras e privacidade;
+    \item Riscos em redes sociais;
+    \item Cyberbullying;
+    \item Jogos online com segurança;
+    \item Introdução ao pensamento computacional com atividades lúdicas.
+\end{itemize}
+
+Foco: conscientização e uso responsável da internet.
+
+% -----------------------------------------------------
+
+\subsubsection*{3. Presença Digital e IA para Pequenos Empreendedores}
+
+Possíveis subtemas:
+
+\begin{itemize}
+    \item Criação de perfil profissional no Instagram;
+    \item Noções básicas de criação de sites simples;
+    \item Uso de ferramentas de IA para criação de conteúdo;
+    \item Geração de textos comerciais com IA;
+    \item Criação de imagens para divulgação com ferramentas gratuitas.
+\end{itemize}
+
+Foco: aumento de visibilidade e produtividade digital.
+
+% -----------------------------------------------------
+
+\subsubsection*{4. IA Aplicada ao Ambiente de Desenvolvimento (VSCode)}
+
+Possíveis subtemas:
+
+\begin{itemize}
+    \item Uso de assistentes de código baseados em IA;
+    \item Organização de projetos com apoio de IA;
+    \item Boas práticas ao utilizar IA na programação;
+    \item Limitações e ética no uso de IA;
+    \item Integração de extensões inteligentes no VSCode.
+\end{itemize}
+
+Foco: produtividade e uso responsável da inteligência artificial.
+
+
+% =====================================================
+\subsection{Entrega Final}
+
+Cada grupo deverá apresentar:
+
+\begin{itemize}
+    \item Plano completo do curso;
+    \item Material produzido;
+    \item Registro da aplicação;
+    \item Relato reflexivo da experiência.
+\end{itemize}
+
+\begin{boxObservacao}
+\textbf{Extensão não é simulação.}
+
+A atividade só será considerada concluída com aplicação real junto à comunidade.
+\end{boxObservacao}
+
+% =====================================================
+
+
+
+\end{document}
